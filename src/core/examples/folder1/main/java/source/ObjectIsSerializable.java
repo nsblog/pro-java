@@ -1,7 +1,9 @@
+package source;
+
 import java.io.Serializable;
 
 /**
- * @author Serzh Nosov (Serzh.Nosov@lanit-tercom.com) created on 10.09.2018 13:39.
+ * @author Serzh Nosov created on 10.09.2018
  */
 public class ObjectIsSerializable implements Serializable {
 
