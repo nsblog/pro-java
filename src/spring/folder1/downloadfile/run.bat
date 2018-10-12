@@ -1,0 +1,1 @@
+mvn package && java -jar target/download-file-1.0.jar
