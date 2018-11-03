@@ -5,7 +5,7 @@ package source.task1;
  */
 public class Task1 {
 
-    public static void task1() {
+    public static void run() {
         System.out.println(setOldValue("Hello"));
     }
 
