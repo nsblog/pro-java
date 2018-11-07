@@ -1,5 +1,5 @@
-import source.collection1.Collection1;
-import source.collection1.Loops;
+import source.collection1.Collection0;
+import source.collection2.Collection2;
 import source.refactoring1.Refactoring1;
 import source.refactoring2.Refactoring2;
 import source.refactoring3.Refactoring3;
@@ -9,8 +9,7 @@ import source.task2.Task2;
 public class Folder2 {
 
     public static void main(String[] args) {
-        Loops.run(true);
-        Loops.run(false);
+        collection2();
     }
 
     public static void refactoring1() {
@@ -35,8 +34,11 @@ public class Folder2 {
     }
 
     public static void collection1() {
-        Collection1.run();
+        Collection0.removeByIndex();
+        Collection0.compareLoop(); //compare loop which is faster?
     }
 
-
+    public static void collection2() {
+        Collection2.insertInMiddleOfList();
+    }
 }
