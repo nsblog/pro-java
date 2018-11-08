@@ -1,4 +1,4 @@
-import source.collection1.Collection0;
+import source.collection1.Collection1;
 import source.collection2.Collection2;
 import source.refactoring1.Refactoring1;
 import source.refactoring2.Refactoring2;
@@ -34,11 +34,14 @@ public class Folder2 {
     }
 
     public static void collection1() {
-        Collection0.removeByIndex();
-        Collection0.compareLoop(); //compare loop which is faster?
+        //Collection1.removeByIndex();
+        Collection1.compareLoop(); //compare loop which is faster?
     }
 
     public static void collection2() {
-        Collection2.insertInMiddleOfList();
+        //Collection2.insertWithConcurrentModificationException();
+        //Collection2.insertInMiddleOfList();
+        //Collection2.insertInMiddleWithListIterator();
+        Collection2.insertInMiddleWithListIterator2();
     }
 }

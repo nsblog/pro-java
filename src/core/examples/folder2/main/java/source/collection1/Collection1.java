@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Nosov Serzh on 02.11.2018
  */
-public class Collection0 {
+public class Collection1 {
 
     public static void removeByIndex() {
         List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);

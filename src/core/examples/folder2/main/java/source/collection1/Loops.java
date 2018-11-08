@@ -58,6 +58,13 @@ public class Loops {
         System.out.println(System.currentTimeMillis() - start);
 
         start = System.currentTimeMillis();
+        list.parallelStream().forEach(e -> {
+            sum[0] += e.length();
+        });
+        System.out.print(list.getClass().getSimpleName() + " - parallelStream forEach java 8: ");
+        System.out.println(System.currentTimeMillis() - start);
+
+        start = System.currentTimeMillis();
         for (int i = 0; i < list.size(); i++) {
             String s = list.get(i);
             sum[0] += s.length();
