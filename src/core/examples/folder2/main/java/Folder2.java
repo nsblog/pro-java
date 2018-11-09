@@ -9,7 +9,7 @@ import source.task2.Task2;
 public class Folder2 {
 
     public static void main(String[] args) {
-        collection2();
+        Collection2.insertInMiddleOfList();
     }
 
     public static void refactoring1() {

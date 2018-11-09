@@ -17,7 +17,8 @@ public class Loops {
     public static void run(boolean isArrayList) {
 
         List<String> list = isArrayList ? new ArrayList<>() : new LinkedList<>();
-        for (int i = 0; i < 100000; i++) {
+        int size = (int) Math.pow(2.0, 19);
+        for (int i = 0; i < size; i++) {
             list.add(UUID.randomUUID().toString());
         }
 
@@ -29,7 +30,7 @@ public class Loops {
             String s = iter.next();
             sum[0] += s.length();
         }
-        System.out.print(list.getClass().getSimpleName() + " - явный интератор + while: ");
+        System.out.print(list.getClass().getSimpleName() + " - явный Iterator + while: ");
         System.out.println(System.currentTimeMillis() - start);
 
         start = System.currentTimeMillis();
@@ -38,7 +39,16 @@ public class Loops {
             String s = iter.next();
             sum[0] += s.length();
         }
-        System.out.print(list.getClass().getSimpleName() + " - явный интератор + for: ");
+        System.out.print(list.getClass().getSimpleName() + " - явный Iterator + for: ");
+        System.out.println(System.currentTimeMillis() - start);
+
+        start = System.currentTimeMillis();
+        iter = list.listIterator();
+        while (iter.hasNext()) {
+            String s = iter.next();
+            sum[0] += s.length();
+        }
+        System.out.print(list.getClass().getSimpleName() + " - явный ListIterator + while: ");
         System.out.println(System.currentTimeMillis() - start);
 
 
@@ -46,7 +56,7 @@ public class Loops {
         for (String s : list) {
             sum[0] += s.length();
         }
-        System.out.print(list.getClass().getSimpleName() + " - неявный интератор: ");
+        System.out.print(list.getClass().getSimpleName() + " - неявный интератор 'for (String s : list)': ");
         System.out.println(System.currentTimeMillis() - start);
 
 

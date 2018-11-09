@@ -1,6 +1,7 @@
 package source.collection2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class InsertInMiddleOfList {
                 index++;
             }
         } catch (ConcurrentModificationException e) {
-            System.out.println(list.getClass().getSimpleName() + " - явный интератор + while -> throws ConcurrentModificationException");
+            System.out.println(list.getClass().getSimpleName() + " - явный Iterator + while -> throws ConcurrentModificationException");
         }
 
 
@@ -60,7 +61,21 @@ public class InsertInMiddleOfList {
                 index++;
             }
         } catch (ConcurrentModificationException e) {
-            System.out.println(list.getClass().getSimpleName() + " - явный интератор + for -> throws ConcurrentModificationException");
+            System.out.println(list.getClass().getSimpleName() + " - явный Iterator + for -> throws ConcurrentModificationException");
+        }
+
+        try {
+            int index = 0;
+            Iterator<String> iter = list.listIterator();
+            while (iter.hasNext()) {
+                iter.next();
+                if (index == (list.size() / 2)) {
+                    list.add(NEW_ELEMENT);
+                }
+                index++;
+            }
+        } catch (ConcurrentModificationException e) {
+            System.out.println(list.getClass().getSimpleName() + " - явный ListIterator + while -> throws ConcurrentModificationException");
         }
 
 
@@ -74,7 +89,7 @@ public class InsertInMiddleOfList {
                 index++;
             }
         } catch (ConcurrentModificationException e) {
-            System.out.println(list.getClass().getSimpleName() + " - неявный интератор -> throws ConcurrentModificationException");
+            System.out.println(list.getClass().getSimpleName() + " - неявный интератор 'for (String s : list)' -> throws ConcurrentModificationException");
         }
 
 
@@ -130,7 +145,7 @@ public class InsertInMiddleOfList {
         List<String> list = fillArray(isArrayList);
 
         ListIterator<String> iter;
-        System.out.println(list.getClass().getSimpleName() + " - ListIterator.add() use case 2 -> START");
+        System.out.println(list.getClass().getSimpleName() + " - ListIterator.add() use case 2 -> START" + br());
         int index = 0;
         iter = list.listIterator();
         while (iter.hasNext()) {
@@ -139,11 +154,16 @@ public class InsertInMiddleOfList {
                 iter.add(NEW_ELEMENT);
             index++;
         }
-        System.out.println(list.getClass().getSimpleName() + " - ListIterator.add() use case 2 -> END");
+        System.out.println(br() + "RESULT IS " + Arrays.deepToString(list.toArray()) + br());
+        System.out.println(list.getClass().getSimpleName() + " - ListIterator.add() use case 2 -> END" + br());
+    }
+
+    private static String br() {
+        return "\n\r";
     }
 
     private static List<String> fillArray(boolean isArrayList) {
-        int size = (int) Math.pow(2.0, 3);
+        int size = (int) Math.pow(2.0, 20);
         //System.out.println("Size of list is " + size);
 
         List<String> list = isArrayList ? new ArrayList<>() : new LinkedList<>();
