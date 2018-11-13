@@ -1,5 +1,6 @@
 import source.collection1.Collection1;
 import source.collection2.Collection2;
+import source.collection3.Collection3;
 import source.refactoring1.Refactoring1;
 import source.refactoring2.Refactoring2;
 import source.refactoring3.Refactoring3;
@@ -9,7 +10,7 @@ import source.task2.Task2;
 public class Folder2 {
 
     public static void main(String[] args) {
-        Collection2.insertInMiddleOfList();
+        collectionMemory();
     }
 
     public static void refactoring1() {
@@ -43,5 +44,9 @@ public class Folder2 {
         //Collection2.insertInMiddleOfList();
         //Collection2.insertInMiddleWithListIterator();
         Collection2.insertInMiddleWithListIterator2();
+    }
+
+    public static void collectionMemory() {
+        Collection3.memory();
     }
 }
