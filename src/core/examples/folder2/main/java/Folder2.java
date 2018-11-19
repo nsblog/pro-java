@@ -1,5 +1,6 @@
 import source.collection1.Collection1;
 import source.collection2.Collection2;
+import source.map1.Map1;
 import source.refactoring1.Refactoring1;
 import source.refactoring2.Refactoring2;
 import source.refactoring3.Refactoring3;
@@ -43,5 +44,9 @@ public class Folder2 {
         //Collection2.insertInMiddleOfList();
         //Collection2.insertInMiddleWithListIterator();
         Collection2.insertInMiddleWithListIterator2();
+    }
+
+    public static void map1() {
+        Map1.findBucket();
     }
 }
