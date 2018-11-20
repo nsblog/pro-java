@@ -10,7 +10,7 @@ import source.task2.Task2;
 public class Folder2 {
 
     public static void main(String[] args) {
-
+        findBucket();
     }
 
     public static void refactoring1() {
@@ -46,7 +46,7 @@ public class Folder2 {
         Collection2.insertInMiddleWithListIterator2();
     }
 
-    public static void map1() {
-        Map1.findBucket();
+    public static void findBucket() {
+        Map1.defineBucketByKeys();
     }
 }
