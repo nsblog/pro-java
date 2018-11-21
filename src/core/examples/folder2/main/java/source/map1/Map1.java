@@ -2,6 +2,9 @@ package source.map1;
 
 import java.util.HashMap;
 
+import static source.map1.HashMapMethods.defineBucketByKeyLikeHashMap;
+
+
 /**
  * Created by Nosov Serzh on 19.11.2018
  */
@@ -20,73 +23,26 @@ public class Map1 {
         map.put(8, "Eight");
         map.put(9, "Nine");
         map.put(10, "Ten");
-
-
-        //map.
     }
 
     public static void defineBucketByKeys() {
-        defineBucketByKey(-20);
-        defineBucketByKey(-19);
-        defineBucketByKey(-18);
-        defineBucketByKey(-17);
-        defineBucketByKey(-16);
-        defineBucketByKey(-15);
-        defineBucketByKey(-14);
-        defineBucketByKey(-13);
-        defineBucketByKey(-12);
-        defineBucketByKey(-11);
-        defineBucketByKey(-10);
-        defineBucketByKey(-9);
-        defineBucketByKey(-8);
-        defineBucketByKey(-7);
-        defineBucketByKey(-6);
-        defineBucketByKey(-5);
-        defineBucketByKey(-4);
-        defineBucketByKey(-3);
-        defineBucketByKey(-2);
-        defineBucketByKey(-1);
-        defineBucketByKey(0);
-        defineBucketByKey(1);
-        defineBucketByKey(2);
-        defineBucketByKey(3);
-        defineBucketByKey(4);
-        defineBucketByKey(5);
-        defineBucketByKey(6);
-        defineBucketByKey(7);
-        defineBucketByKey(8);
-        defineBucketByKey(9);
-        defineBucketByKey(10);
-        defineBucketByKey(11);
-        defineBucketByKey(12);
-        defineBucketByKey(13);
-        defineBucketByKey(14);
-        defineBucketByKey(15);
-        defineBucketByKey(16);
-        defineBucketByKey(17);
-        defineBucketByKey(18);
-        defineBucketByKey(19);
-        defineBucketByKey(20);
+        for (int i = -40; i <= 40; i++) {
+            defineBucketByKeyLikeHashMap(i);
+            //defineBucketByKeyEasyWay(i);
+        }
     }
 
-    public static void defineBucketByKey(Object key) {
-        int hash = hash(key);
-
-        int n = 16; //Всего корзин
-        //Определить корзину
-        int i = (n - 1) & hash;
-        System.out.println(String.format("Key is %s, hash is %s, number of bucket is %s", key, hash, i));
+    private static void defineBucketByKeyEasyWay(int hash) {
+        int i = hash % 16;
+        int abs = Math.abs(i);
+        System.out.println(String.format("Hash is %s, after mod result is %s, after abs is %s", hash, i, abs));
     }
 
-    /**
-     * Дубликат метода HashMap.hash
-     * Как будто возвращает улучшенный hash ключа
-     *
-     * @param key
-     * @return
-     */
-    static final int hash(Object key) {
-        int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    public static void simpleExample(){
+        int n = 16;
+        for (int i = -1; i <= 1 ; i++) {
+            System.out.println(String.format("i=%s, n=%s, Math.abs(i mod n)=%s", i, n, Math.abs(i % n)));
+            System.out.println(String.format("i=%s, n=%s,           i&(n-1)=%s", i, n, i & (n - 1)));
+        }
     }
 }
