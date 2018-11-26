@@ -45,4 +45,15 @@ public class Map1 {
             System.out.println(String.format("i=%s, n=%s,           i&(n-1)=%s", i, n, i & (n - 1)));
         }
     }
+
+    public static void simpleExample2(){
+        System.out.println("-5 & 15 = " + (-5 & 15));
+        System.out.println("Math.abs(-5 % 16) = " + Math.abs(-5 % 16));
+
+        System.out.println("16 & 15 = " + (16 & 15));
+        System.out.println("Math.abs(16 % 16) = " + Math.abs(16 % 16));
+
+        System.out.println("5 & 15 = " + (5 & 15));
+        System.out.println("Math.abs(5 % 16) = " + Math.abs(5 % 16));
+    }
 }

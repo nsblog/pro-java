@@ -10,7 +10,7 @@ import source.task2.Task2;
 public class Folder2 {
 
     public static void main(String[] args) {
-        findBucket();
+        Map1.defineBucketByKeys();
     }
 
     public static void refactoring1() {
