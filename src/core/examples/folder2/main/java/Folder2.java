@@ -1,6 +1,7 @@
 import source.collection1.Collection1;
 import source.collection2.Collection2;
 import source.map1.Map1;
+import source.map2.Map2;
 import source.refactoring1.Refactoring1;
 import source.refactoring2.Refactoring2;
 import source.refactoring3.Refactoring3;
@@ -10,7 +11,7 @@ import source.task2.Task2;
 public class Folder2 {
 
     public static void main(String[] args) {
-        Map1.defineBucketByKeys();
+        fillMapKeyWithSameHashCode();
     }
 
     public static void refactoring1() {
@@ -48,5 +49,12 @@ public class Folder2 {
 
     public static void findBucket() {
         Map1.defineBucketByKeys();
+        Map1.findBucket();
+        Map1.simpleExample();
+        Map1.simpleExample2();
+    }
+
+    public static void fillMapKeyWithSameHashCode(){
+        Map2.fillMapKeyWithSameHashCode();
     }
 }
