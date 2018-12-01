@@ -54,7 +54,11 @@ public class Folder2 {
         Map1.simpleExample2();
     }
 
-    public static void fillMapKeyWithSameHashCode(){
+    public static void fillMapKeyWithSameHashCode() {
         Map2.fillMapKeyWithSameHashCode();
+    }
+
+    public static void putDiffObjectsInTheSameBucket() {
+        Map2.putDiffObjectsInTheSameBucket();
     }
 }

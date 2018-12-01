@@ -17,4 +17,12 @@ public class Map2 {
             map.put(keyWithTheSameHash, "SOME VALUE_" + i);
         }
     }
+
+    public static void putDiffObjectsInTheSameBucket() {
+        Map<Integer, String> map = new HashMap<>();
+        for (int i = 0; i < 5; i++) {
+            int key = i * 16;
+            map.put(key, "SOME VALUE_" + i);
+        }
+    }
 }
