@@ -1,14 +1,19 @@
 package source.concurrency1;
 
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Serzh Nosov created on 12.12.2018.
  */
+@ThreadSafe
 public class Account {
 
     private String login;
 
+    @GuardedBy("this")
     private AtomicInteger funds;
 
     public void withdraw(Integer amount) {
