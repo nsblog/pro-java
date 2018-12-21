@@ -11,34 +11,34 @@ import static org.junit.Assert.assertEquals;
  */
 public class Concurrency1 {
 
-    private class ThreadCount extends Thread {
-        private final Count count;
+	private class ThreadCount extends Thread {
+		private final Count count;
 
-        private ThreadCount(final Count count) {
-            this.count = count;
-        }
+		private ThreadCount(final Count count) {
+			this.count = count;
+		}
 
-        public void run() {
-            this.count.increment();
-        }
-    }
+		public void run() {
+			this.count.increment();
+		}
+	}
 
-    @Test
-    public void run() throws InterruptedException {
-        final Count count = new Count();
+	@Test
+	public void run() throws InterruptedException {
+		final Count count = new Count();
 
-        //Создаем нити
-        Thread first = new ThreadCount(count);
-        Thread second = new ThreadCount(count);
+		//Создаем нити
+		Thread first = new ThreadCount(count);
+		Thread second = new ThreadCount(count);
 
-        //Запускаем нити
-        first.start();
-        second.start();
+		//Запускаем нити
+		first.start();
+		second.start();
 
-        //Заставляем главную нить долждаться выполнения нитей
-        first.join();
-        second.join();
+		//Заставляем главную нить долждаться выполнения нитей
+		first.join();
+		second.join();
 
-        assertEquals(count.get(), 2);
-    }
+		assertEquals(count.get(), 2);
+	}
 }

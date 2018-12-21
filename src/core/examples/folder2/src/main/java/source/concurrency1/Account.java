@@ -11,17 +11,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 @ThreadSafe
 public class Account {
 
-    private String login;
+	private String login;
 
-    @GuardedBy("this")
-    private AtomicInteger funds;
+	@GuardedBy("this")
+	private AtomicInteger funds;
 
-    public void withdraw(Integer amount) {
-        int previousValue = funds.getAndAdd(-amount);
-        if (previousValue < amount) throw new IllegalStateException("The founds are not enough.");
-    }
+	public void withdraw(Integer amount) {
+		int previousValue = funds.getAndAdd(-amount);
+		if (previousValue < amount) throw new IllegalStateException("The founds are not enough.");
+	}
 
-    public void deposit(Integer amount) {
-        funds.addAndGet(amount);
-    }
+	public void deposit(Integer amount) {
+		funds.addAndGet(amount);
+	}
 }
