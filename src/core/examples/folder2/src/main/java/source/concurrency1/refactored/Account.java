@@ -1,4 +1,4 @@
-package source.concurrency1;
+package source.concurrency1.refactored;
 
 import net.jcip.annotations.GuardedBy;
 import net.jcip.annotations.ThreadSafe;

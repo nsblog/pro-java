@@ -1,4 +1,4 @@
-package source.concurrency1;
+package source.concurrency1.refactored;
 
 import java.util.concurrent.ConcurrentHashMap;
 
