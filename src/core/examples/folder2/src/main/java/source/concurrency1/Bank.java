@@ -7,7 +7,41 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Bank {
 
-    private ConcurrentHashMap<String, Integer> accounts = new ConcurrentHashMap<>();
+    public static void main(String[] args) throws InterruptedException {
+        Bank bank = new Bank();
+        startParallelOperations(bank);
+    }
+
+    public static void startParallelOperations(Bank bank) throws InterruptedException {
+        ConcurrentHashMap<String, Integer> accounts = bank.accounts;
+
+        accounts.put("test", 1_000_000);
+        Integer value = accounts.get("test");
+        System.out.println("START VALUE IS " + value);
+
+        Thread depositThread = new Thread(() -> {
+            for (int i = 0; i < 1_000_000; i++) {
+                bank.deposit("test", 1);
+            }
+        });
+
+        Thread withdrawThread = new Thread(() -> {
+            for (int i = 0; i < 1_000_000; i++) {
+                bank.withdraw("test", 1);
+            }
+        });
+
+        depositThread.start();
+        withdrawThread.start();
+
+        depositThread.join();
+        withdrawThread.join();
+
+        value = accounts.get("test");
+        System.out.println("FINISH VALUE IS " + value);
+    }
+
+    protected ConcurrentHashMap<String, Integer> accounts = new ConcurrentHashMap<>();
 
     public void withdraw(String account, Integer amount) {
         Integer funds = accounts.get(account);
