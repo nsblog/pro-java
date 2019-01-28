@@ -1,4 +1,4 @@
-package source.concurrency1.refactoring3;
+package source.concurrency1.refactored3;
 
 import source.concurrency1.refactored2.Account;
 import source.concurrency1.refactored2.BankRefactored2;
