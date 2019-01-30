@@ -1,6 +1,5 @@
 package source.concurrencymap;
 
-import java.sql.SQLOutput;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -11,6 +10,8 @@ public class ConcurrencyMap {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("START");
 
+        //Map<Object, Object> hashMap = new HashMap<>();
+        //Map<Object, Object> map = Collections.synchronizedMap(hashMap);
         ConcurrentHashMap<Object, Object> map = new ConcurrentHashMap<>();
 
         Thread writerThread = new Thread(() -> {
