@@ -34,6 +34,11 @@ public class Bank {
         depositThread.start();
         withdrawThread.start();
 
+        Thread.sleep(50);
+
+        value = accounts.get("test");
+        System.out.println("INTERMEDIATE VALUE IS " + value);
+
         depositThread.join();
         withdrawThread.join();
 
