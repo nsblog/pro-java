@@ -19,19 +19,20 @@
 </bean>
 
 <!-- Configure Aspect Beans, without this Aspects advices wont execute -->
-<bean name="employeeAspect" class="com.journaldev.spring.aspect.EmployeeAspect" />
+<!--<bean name="employeeAspect" class="com.journaldev.spring.aspect.EmployeeAspect" />
 <bean name="employeeAspectPointcut" class="com.journaldev.spring.aspect.EmployeeAspectPointcut" />
 <bean name="employeeAspectJoinPoint" class="com.journaldev.spring.aspect.EmployeeAspectJoinPoint" />
 <bean name="employeeAfterAspect" class="com.journaldev.spring.aspect.EmployeeAfterAspect" />
 <bean name="employeeAroundAspect" class="com.journaldev.spring.aspect.EmployeeAroundAspect" />
+<bean name="employeeXMLConfigAspect" class="com.journaldev.spring.aspect.EmployeeXMLConfigAspect" />-->
+
 <bean name="employeeAnnotationAspect" class="com.journaldev.spring.aspect.EmployeeAnnotationAspect" />
-<bean name="employeeXMLConfigAspect" class="com.journaldev.spring.aspect.EmployeeXMLConfigAspect" />
 
 <!-- Spring AOP XML Configuration -->
-<aop:config>
+<!--<aop:config>
 	<aop:aspect ref="employeeXMLConfigAspect" id="employeeXMLConfigAspectID" order="1">
 		<aop:pointcut expression="execution(* com.journaldev.spring.model.Employee.getName())" id="getNamePointcut"/>
 		<aop:around method="employeeAroundAdvice" pointcut-ref="getNamePointcut" arg-names="proceedingJoinPoint"/>
 	</aop:aspect>
-</aop:config>
+</aop:config>-->
 </beans>
