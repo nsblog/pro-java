@@ -30,7 +30,8 @@ public class Account {
     }
 
     public synchronized void waitAndWithdraw(long amount) throws InterruptedException {
-        while (balance < amount) {
+        System.out.println("waitAndWithdraw");
+        while (balance < amount) { //not if (balance < amount)
             wait();
             if (balance % 10000 == 0) System.out.println("Balance is " + balance);
         }

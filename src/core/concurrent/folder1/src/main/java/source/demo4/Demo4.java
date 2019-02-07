@@ -10,7 +10,7 @@ public class Demo4 {
         System.out.println("Start balance is " + account.getBalance());
 
         Thread thread = new Thread(() -> {
-            for (int i = 0; i < 100_000; i++) {
+            for (int i = 0; i < 100_000_000; i++) {
                 account.deposit(1);
             }
         });
@@ -19,7 +19,7 @@ public class Demo4 {
         thread.start();
 
         System.out.println("Start wait");
-        account.waitAndWithdraw(50_000);
+        account.waitAndWithdraw(100_000_000);
 
         thread.join();
 

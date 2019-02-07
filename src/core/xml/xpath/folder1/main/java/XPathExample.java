@@ -21,20 +21,20 @@ import java.io.StringReader;
 public class XPathExample {
 
     private static final String xml =
-                "<root>\n" +
-                "    <data>\n" +
-                "        <person>\n" +
-                "            <fullname>Иван Иванович Иванов</fullname>\n" +
-                "            <address>ул. Советская, д. 1, кв. 1</address>\n" +
-                "            <phonenumber>89998881111</phonenumber>\n" +
-                "            <relatives_emails>\n" +
-                "                <email>test1@gmail.com</email>\n" +
-                "                <email>test2@gmail.com</email>\n" +
-                "                <email>test3@gmail.com</email>\n" +
-                "            </relatives_emails>\n" +
-                "        </person>\n" +
-                "    </data>\n" +
-                "</root>\n";
+            "<root>\n" +
+            "    <data>\n" +
+            "        <person>\n" +
+            "            <fullname>Иван Иванович Иванов</fullname>\n" +
+            "            <address>ул. Советская, д. 1, кв. 1</address>\n" +
+            "            <phonenumber>89998881111</phonenumber>\n" +
+            "            <relatives_emails>\n" +
+            "                <Email>test1@gmail.com</Email>\n" +
+            "                <email>test2@gmail.com</email>\n" +
+            "                <email>test3@gmail.com</email>\n" +
+            "            </relatives_emails>\n" +
+            "        </person>\n" +
+            "    </data>\n" +
+            "</root>\n";
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
 
@@ -44,7 +44,9 @@ public class XPathExample {
 
         XPathFactory xPathfactory = XPathFactory.newInstance();
         XPath xpath = xPathfactory.newXPath();
-        XPathExpression expr = xpath.compile("/root/data/person/relatives_emails/email");
+        //XPathExpression expr = xpath.compile("/root/data/person/relatives_emails/email");
+        XPathExpression expr = xpath.compile("//email | //person");
+        //XPathExpression expr = xpath.compile("//email");
 
         NodeList nl = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
 
